@@ -21,7 +21,7 @@ public class ClienteResource {
 	private ClienteService service;
 	
 	@GetMapping
-	public List<Cliente> buscar() {
+	public List<Cliente> buscarTudo() {
 		List<Cliente> lista = new ArrayList<>();
 		lista.addAll(service.buscarTudo());
 		
