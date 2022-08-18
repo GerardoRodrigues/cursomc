@@ -28,8 +28,8 @@ public class PedidoResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<?> buscarPorID(@PathVariable Integer id){
-		Pedido obj = service.findById(id);
+	public ResponseEntity<Pedido> buscarPorID(@PathVariable Integer id){
+		Pedido obj = service.buscarPorId(id);
 		return ResponseEntity.ok(obj);
 	}
 }

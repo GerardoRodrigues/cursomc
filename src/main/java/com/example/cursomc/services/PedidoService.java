@@ -23,7 +23,7 @@ public class PedidoService {
 		return lista;
 	}
 	
-	public Pedido findById(Integer id) {
+	public Pedido buscarPorId(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto nao encontrado! Id " + id + ". Tipo: " + Pedido.class.getName()));		

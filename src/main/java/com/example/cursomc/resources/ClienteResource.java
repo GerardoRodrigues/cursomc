@@ -29,7 +29,7 @@ public class ClienteResource {
 	}
 	
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<?> buscarPorId(@PathVariable Integer id) {
+	public ResponseEntity<Cliente> buscarPorId(@PathVariable Integer id) {
 		Cliente obj = service.buscar(id);
 		
 		return ResponseEntity.ok().body(obj);
