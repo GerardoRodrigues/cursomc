@@ -1,5 +1,6 @@
 package com.example.cursomc.services.validation.utils;
 
+// Fonte: https://github.com/wendelanchieta/companheirosautocenter/blob/7f992333095d0a4a9178a63a0aca2ca52be7b638/src/main/java/com/companheirosautocenter/appautocenter/services/validation/utils/BR.java
 public class BR {
 
 	// CPF
