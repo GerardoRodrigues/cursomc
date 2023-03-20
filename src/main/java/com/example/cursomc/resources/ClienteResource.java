@@ -10,6 +10,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,6 +34,7 @@ public class ClienteResource {
 	@Autowired
 	private ClienteService service;
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@GetMapping
 	public List<ClienteDTO> buscarTudo() {
 		List<Cliente> lista = new ArrayList<>();
@@ -65,12 +67,14 @@ public class ClienteResource {
 		return ResponseEntity.noContent().build();
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@DeleteMapping(value = "/{id}")
 	public ResponseEntity<Void> deletar(@PathVariable Integer id){
 		service.deletar(id);
 		return ResponseEntity.noContent().build();
 	}
 	
+	@PreAuthorize("hasAnyRole('ADMIN')")
 	@GetMapping(value = "/pagina")
 	public ResponseEntity<Page<ClienteDTO>> buscarPagina(@RequestParam(value = "pagina", defaultValue = "0") Integer pagina,
 			@RequestParam(value = "linhasPorPagina", defaultValue = "24") Integer linhasPorPagina, 
